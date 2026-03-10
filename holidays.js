@@ -1,4 +1,4 @@
-[
+const HOLIDAYS = [
   {
     "name": "Tết Dương Lịch",
     "date": "01-01",
@@ -83,4 +83,4 @@
     "icon": "🎄",
     "color": "#228B22"
   }
-]
+];
