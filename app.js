@@ -245,11 +245,18 @@ function hexToRgba(hex, alpha) {
 async function init() {
   createParticles();
 
+  // Dùng inline data nếu có (tránh lỗi CORS khi mở file://)
+  // HOLIDAYS_DATA được nhúng từ index.html qua thẻ <script id="holidays-data">
   try {
-    const res = await fetch('holidays.json');
-    holidays = await res.json();
+    const inlineEl = document.getElementById('holidays-data');
+    if (inlineEl) {
+      holidays = JSON.parse(inlineEl.textContent);
+    } else {
+      const res = await fetch('holidays.json');
+      holidays = await res.json();
+    }
   } catch (e) {
-    console.error('Không tải được holidays.json:', e);
+    console.error('Không tải được dữ liệu ngày lễ:', e);
     return;
   }
 
