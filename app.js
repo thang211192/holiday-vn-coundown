@@ -11,25 +11,50 @@ let prevValues = { days: null, hours: null, mins: null, secs: null };
 /* ===== PARTICLES ===== */
 function createParticles() {
   const container = document.getElementById('particles');
-  const colors = ['#7c6fff','#ff6b9d','#ffd166','#06d6a0','#f72585','#4cc9f0'];
-  for (let i = 0; i < 40; i++) {
-    const p = document.createElement('div');
+
+  // Floating emoji icons
+  const icons = ['❤️','✨','🌸','⭐','💫','🌟','💖','🎊','🌺','💝','🎉','🦋','🌙','💕','🎈'];
+  for (let i = 0; i < 35; i++) {
+    const p = document.createElement('span');
     p.className = 'particle';
-    const size = Math.random() * 6 + 2;
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const left = Math.random() * 100;
-    const duration = Math.random() * 20 + 15;
-    const delay = Math.random() * 20;
+    const icon  = icons[Math.floor(Math.random() * icons.length)];
+    const size  = (Math.random() * 18 + 10).toFixed(1);
+    const left  = (Math.random() * 100).toFixed(1);
+    const dur   = (Math.random() * 18 + 12).toFixed(1);
+    const delay = (Math.random() * 22).toFixed(1);
+    const drift = ((Math.random() - 0.5) * 120).toFixed(0);
+    p.textContent = icon;
     p.style.cssText = `
-      width:${size}px; height:${size}px;
-      left:${left}%; bottom:-10px;
-      background:${color};
-      box-shadow: 0 0 ${size * 2}px ${color};
-      animation-duration:${duration}s;
-      animation-delay:${delay}s;
+      font-size:${size}px;
+      left:${left}%;
+      bottom:-${size}px;
+      --drift:${drift}px;
+      animation-duration:${dur}s;
+      animation-delay:-${delay}s;
+      filter: drop-shadow(0 0 6px rgba(255,200,255,0.6));
     `;
     container.appendChild(p);
   }
+
+  // Glowing background orbs
+  const orbColors = [
+    'rgba(180,80,255,0.5)','rgba(255,80,160,0.45)',
+    'rgba(80,140,255,0.4)','rgba(255,160,50,0.35)','rgba(80,220,200,0.35)'
+  ];
+  orbColors.forEach((color, i) => {
+    const orb = document.createElement('div');
+    orb.className = 'orb';
+    const size = Math.random() * 300 + 200;
+    orb.style.cssText = `
+      width:${size}px; height:${size}px;
+      background:${color};
+      left:${Math.random() * 90}%;
+      top:${Math.random() * 80}%;
+      animation-duration:${4 + i * 1.5}s;
+      animation-delay:${i * 0.8}s;
+    `;
+    container.appendChild(orb);
+  });
 }
 
 /* ===== DATE HELPERS ===== */
