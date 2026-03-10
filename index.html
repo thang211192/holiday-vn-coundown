@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đếm Ngược Ngày Lễ Việt Nam</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating particles background -->
+  <div class="particles" id="particles"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">🇻🇳</div>
+      <h1 class="title">Ngày Lễ Việt Nam</h1>
+      <p class="subtitle">Đếm ngược đến những ngày đặc biệt</p>
+    </div>
+  </header>
+
+  <!-- Next upcoming holiday hero -->
+  <section class="hero" id="hero">
+    <div class="hero-label">Sắp tới</div>
+    <div class="hero-icon" id="hero-icon">🎉</div>
+    <h2 class="hero-name" id="hero-name">Đang tải...</h2>
+    <p class="hero-desc" id="hero-desc"></p>
+    <div class="hero-date-display" id="hero-date-display"></div>
+    <div class="countdown-boxes" id="hero-countdown">
+      <div class="countdown-box">
+        <span class="count" id="cd-days">--</span>
+        <span class="label">Ngày</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="countdown-box">
+        <span class="count" id="cd-hours">--</span>
+        <span class="label">Giờ</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="countdown-box">
+        <span class="count" id="cd-mins">--</span>
+        <span class="label">Phút</span>
+      </div>
+      <div class="sep">:</div>
+      <div class="countdown-box">
+        <span class="count" id="cd-secs">--</span>
+        <span class="label">Giây</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- All holidays grid -->
+  <section class="all-section">
+    <h2 class="section-title">Tất cả ngày lễ</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <footer class="footer">
+    <p>Làm bằng ❤️ cho người Việt Nam</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
