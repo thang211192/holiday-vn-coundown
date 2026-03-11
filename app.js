@@ -12,17 +12,17 @@ let prevValues = { days: null, hours: null, mins: null, secs: null };
 function createParticles() {
   const container = document.getElementById('particles');
 
-  // Floating emoji icons
-  const icons = ['❤️','✨','🌸','⭐','💫','🌟','💖','🎊','🌺','💝','🎉','🦋','🌙','💕','🎈'];
-  for (let i = 0; i < 35; i++) {
+  // Floating emoji icons (general)
+  const icons = ['✨','🌸','⭐','💫','🌟','🎊','🌺','🎉','🦋','🌙','🎈','🌈','🎀','🪄','🌻'];
+  for (let i = 0; i < 30; i++) {
     const p = document.createElement('span');
     p.className = 'particle';
     const icon  = icons[Math.floor(Math.random() * icons.length)];
-    const size  = (Math.random() * 18 + 10).toFixed(1);
+    const size  = (Math.random() * 20 + 12).toFixed(1);
     const left  = (Math.random() * 100).toFixed(1);
-    const dur   = (Math.random() * 18 + 12).toFixed(1);
-    const delay = (Math.random() * 22).toFixed(1);
-    const drift = ((Math.random() - 0.5) * 120).toFixed(0);
+    const dur   = (Math.random() * 16 + 10).toFixed(1);
+    const delay = (Math.random() * 20).toFixed(1);
+    const drift = ((Math.random() - 0.5) * 140).toFixed(0);
     p.textContent = icon;
     p.style.cssText = `
       font-size:${size}px;
@@ -31,27 +31,52 @@ function createParticles() {
       --drift:${drift}px;
       animation-duration:${dur}s;
       animation-delay:-${delay}s;
-      filter: drop-shadow(0 0 6px rgba(255,200,255,0.6));
+      filter: drop-shadow(0 0 8px rgba(255,200,255,0.8));
     `;
     container.appendChild(p);
   }
 
-  // Glowing background orbs
+  // Floating hearts layer — nhiều tim hơn, to hơn
+  const hearts = ['❤️','💖','💕','💗','💝','💓','🩷','💞'];
+  for (let i = 0; i < 28; i++) {
+    const h = document.createElement('span');
+    h.className = 'heart';
+    const icon  = hearts[Math.floor(Math.random() * hearts.length)];
+    const size  = (Math.random() * 24 + 10).toFixed(1);
+    const left  = (Math.random() * 100).toFixed(1);
+    const dur   = (Math.random() * 14 + 9).toFixed(1);
+    const delay = (Math.random() * 18).toFixed(1);
+    const sway  = ((Math.random() - 0.5) * 80).toFixed(0);
+    h.textContent = icon;
+    h.style.cssText = `
+      font-size:${size}px;
+      left:${left}%;
+      bottom:-${size}px;
+      --sway:${sway}px;
+      animation-duration:${dur}s;
+      animation-delay:-${delay}s;
+      filter: drop-shadow(0 0 10px rgba(255,100,180,0.9));
+    `;
+    container.appendChild(h);
+  }
+
+  // Glowing background orbs — to hơn, sáng hơn
   const orbColors = [
-    'rgba(180,80,255,0.5)','rgba(255,80,160,0.45)',
-    'rgba(80,140,255,0.4)','rgba(255,160,50,0.35)','rgba(80,220,200,0.35)'
+    'rgba(210,60,255,0.6)','rgba(255,60,180,0.55)',
+    'rgba(80,120,255,0.5)','rgba(255,140,30,0.45)',
+    'rgba(60,220,200,0.45)','rgba(255,80,120,0.5)'
   ];
   orbColors.forEach((color, i) => {
     const orb = document.createElement('div');
     orb.className = 'orb';
-    const size = Math.random() * 300 + 200;
+    const size = Math.random() * 350 + 220;
     orb.style.cssText = `
       width:${size}px; height:${size}px;
       background:${color};
       left:${Math.random() * 90}%;
       top:${Math.random() * 80}%;
-      animation-duration:${4 + i * 1.5}s;
-      animation-delay:${i * 0.8}s;
+      animation-duration:${3.5 + i * 1.2}s;
+      animation-delay:${i * 0.7}s;
     `;
     container.appendChild(orb);
   });

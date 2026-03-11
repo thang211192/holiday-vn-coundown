@@ -82,5 +82,12 @@ const HOLIDAYS = [
     "description": "Lễ Giáng Sinh, ngày lễ của tình yêu thương, gia đình và sự sẻ chia ấm áp.",
     "icon": "🎄",
     "color": "#228B22"
+  },
+  {
+    "name": "Người yêu về quê",
+    "date": "25-07",
+    "description": "Ngày kỷ niệm khi người yêu về quê, là dịp để gia đình và bạn bè tụ họp, chia sẻ niềm vui và hạnh phúc bên nhau.",
+    "icon": "❤️",
+    "color": "#228B22"
   }
 ];
